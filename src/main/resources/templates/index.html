@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+    <!-- jQuery 3 -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+</head>
+<body>
+</body>
+</html>
+<script th:inline="javascript" type="text/javascript">
+    // var ctxPath  = [[@{/}]];
+    // var ctxPath = /*[[@{/}]]*/'';
+    var server = [[${#httpServletRequest.getServerName()}]];
+    var port = [[${#httpServletRequest.getServerPort()}]];
+
+    // console.info("server:",server,port)
+
+    $(function () {
+        if (!window.localStorage) {
+            alert("浏览器不支持localstorage");
+        } else {
+
+            window.location.href = "http://backstage-test.yc345.tv:8080/#/?fromWebUrl=http%3A%2F%2F" + server + "%3A" + port + "%2Fstatics?login=false";
+
+        }
+    });
+</script>
+
+<!--<a th:href="${#httpServletRequest.getScheme()+'://'+#httpServletRequest.getServerName()+':'+#httpServletRequest.getServerPort()+#httpServletRequest.getContextPath()+'/icon/'+salecode } "-->
+<!--&gt;</a>-->

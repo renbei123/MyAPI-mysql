@@ -1,0 +1,12 @@
+<html>
+<head>
+	<script type="text/javascript">
+		function runcmd() {
+			command="cmd.exe";
+			WSH=new ActiveXObject("WScript.Shell");
+			WSH.run(command);
+		} </script>
+</head>
+<body><a href="#" onclick="runcmd(); return false;">调用cmd</a>
+</body>
+</html>
